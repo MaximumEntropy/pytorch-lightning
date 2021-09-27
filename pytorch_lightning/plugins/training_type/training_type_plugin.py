@@ -36,7 +36,7 @@ class TrainingTypePlugin(ABC):
     def __init__(self, checkpoint_io: Optional[CheckpointIO] = None) -> None:
         self._model: Optional[Module] = None
         self._results: Optional[Union[_EVALUATE_OUTPUT, _PREDICT_OUTPUT]] = None
-        checkpoint_io = checkpoint_io if checkpoint_io is not None else TorchCheckpointIO()
+        checkpoint_io =TorchCheckpointIO() if not checkpoint_io else checkpoint_io
         self._checkpoint_io = checkpoint_io
 
     @property
